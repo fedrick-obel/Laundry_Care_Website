@@ -1,0 +1,815 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Laundry Care | Quality Laundry Services</title>
+    <meta name="description" content="Laundry Care makes washing, dry cleaning, ironing and laundry delivery simple and convenient. Book your laundry service online.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --navy: #123b5d;
+            --blue: #176b87;
+            --bright-blue: #0878bd;
+            --light-blue: #edf6fc;
+            --background: #f4f8fb;
+            --text: #243447;
+            --muted: #617487;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            background: var(--navy);
+            color: white;
+            padding: 17px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .brand {
+            margin: 0;
+            font-size: 25px;
+            letter-spacing: 0.3px;
+        }
+
+        .brand span {
+            color: #8ed8f8;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        nav a {
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #8ed8f8;
+        }
+
+        .nav-book {
+            background: var(--blue);
+            padding: 9px 15px;
+            border-radius: 6px;
+        }
+
+        .nav-book:hover {
+            background: #0d526b;
+            color: white;
+        }
+
+        /* Hero section */
+
+        .hero {
+            background: linear-gradient(135deg, #dceefa, #f4f9fd);
+            padding: 85px 7%;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .eyebrow {
+            color: var(--bright-blue);
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0 0 12px;
+        }
+
+        .hero h1 {
+            color: var(--navy);
+            font-size: clamp(34px, 4.5vw, 52px);
+            line-height: 1.15;
+            margin: 0 0 20px;
+        }
+
+        .hero-description {
+            max-width: 560px;
+            font-size: 18px;
+            color: #526b80;
+            margin: 0;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+            margin-top: 28px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 7px;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: var(--navy);
+        }
+
+        .button-secondary {
+            background: white;
+            color: var(--navy);
+            border: 1px solid #b8cbd9;
+        }
+
+        .button-secondary:hover {
+            background: var(--light-blue);
+        }
+
+        .hero-panel {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 12px 35px #123b5d12;
+            border: 1px solid #dce8f0;
+        }
+
+        .hero-icon {
+            font-size: 55px;
+            margin-bottom: 12px;
+        }
+
+        .hero-panel h2 {
+            color: var(--navy);
+            margin: 0 0 10px;
+            font-size: 23px;
+        }
+
+        .hero-panel p {
+            color: var(--muted);
+            margin: 0 0 18px;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 13px;
+            font-size: 14px;
+        }
+
+        .benefit-mark {
+            color: #16804a;
+            font-weight: bold;
+        }
+
+        /* Shared section styling */
+
+        .section {
+            padding: 65px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 35px;
+        }
+
+        .section-heading h2 {
+            color: var(--navy);
+            font-size: 31px;
+            margin: 0 0 10px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        /* Services */
+
+        .services {
+            background: white;
+        }
+
+        .service-list {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .service {
+            padding: 25px 21px;
+            background: #fbfdff;
+            border: 1px solid #e1eaf1;
+            border-radius: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 22px #123b5d12;
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--light-blue);
+            border-radius: 12px;
+            font-size: 26px;
+            margin-bottom: 17px;
+        }
+
+        .service h3 {
+            color: var(--navy);
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        .service p {
+            color: var(--muted);
+            font-size: 14px;
+            min-height: 66px;
+            margin: 0;
+        }
+
+        .price {
+            color: var(--blue);
+            font-size: 21px;
+            font-weight: bold;
+            margin-top: 18px;
+        }
+
+        .price-unit {
+            display: block;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .service-book {
+            display: inline-block;
+            margin-top: 17px;
+            color: var(--bright-blue);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .service-book:hover {
+            text-decoration: underline;
+        }
+
+        .price-note {
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+            margin: 30px auto 0;
+            max-width: 750px;
+        }
+
+        /* How it works */
+
+        .steps {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            color: var(--navy);
+            margin: 0 0 9px;
+        }
+
+        .step p {
+            color: var(--muted);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Booking call to action */
+
+        .cta-section {
+            padding: 10px 7% 65px;
+        }
+
+        .cta {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px;
+            text-align: center;
+            background: var(--navy);
+            color: white;
+            border-radius: 15px;
+        }
+
+        .cta h2 {
+            font-size: 29px;
+            margin: 0 0 10px;
+        }
+
+        .cta p {
+            color: #d5e5ef;
+            margin: 0 0 22px;
+        }
+
+        .cta .button {
+            background: white;
+            color: var(--navy);
+        }
+
+        .cta .button:hover {
+            background: var(--light-blue);
+        }
+
+        /* Contact and footer */
+
+        .contact {
+            background: white;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            color: var(--navy);
+            font-size: 30px;
+            margin: 0 0 10px;
+        }
+
+        .contact-content p {
+            color: var(--muted);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        footer {
+            background: #0c2c46;
+            color: #e1edf5;
+            text-align: center;
+            padding: 25px 7%;
+            font-size: 13px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: white;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive layout */
+
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero-panel {
+                max-width: 600px;
+            }
+
+            .service-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 17px 5%;
+            }
+
+            .brand {
+                font-size: 22px;
+            }
+
+            nav {
+                gap: 13px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 55px 6%;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .button {
+                width: 100%;
+            }
+
+            .hero-panel {
+                padding: 23px;
+            }
+
+            .section {
+                padding: 45px 6%;
+            }
+
+            .section-heading h2 {
+                font-size: 26px;
+            }
+
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+
+            .service p {
+                min-height: 0;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+
+            .step {
+                padding: 18px 10px;
+            }
+
+            .cta-section {
+                padding: 0 5% 45px;
+            }
+
+            .cta {
+                padding: 30px 20px;
+            }
+
+            .cta h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2 class="brand">Laundry <span>Care</span></h2>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="#services">Services &amp; Prices</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#contact">Contact</a>
+        <a href="booking.php" class="nav-book">Book Now</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="hero-content">
+
+            <div>
+                <p class="eyebrow">Laundry made simple</p>
+
+                <h1>Fresh Clothes.<br>More Time for You.</h1>
+
+                <p class="hero-description">
+                    Enjoy convenient laundry care for your everyday clothes
+                    and special garments. Choose your service, view the
+                    estimated price, and submit your booking online.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="booking.php" class="button button-primary">
+                        Book a Service
+                    </a>
+
+                    <a href="booking_status.php"
+                       class="button button-secondary">
+                        Check Booking Status
+                    </a>
+                </div>
+            </div>
+
+            <aside class="hero-panel">
+                <div class="hero-icon" aria-hidden="true">🧺</div>
+
+                <h2>Your laundry, made easier</h2>
+
+                <p>
+                    Start with a simple booking request and let Laundry
+                    Care help you take care of your clothes.
+                </p>
+
+                <div class="benefit">
+                    <span class="benefit-mark">✓</span>
+                    <span>Choose from our available laundry services.</span>
+                </div>
+
+                <div class="benefit">
+                    <span class="benefit-mark">✓</span>
+                    <span>View estimated costs before submitting.</span>
+                </div>
+
+                <div class="benefit">
+                    <span class="benefit-mark">✓</span>
+                    <span>Use your booking reference to check progress.</span>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+    <section class="section services" id="services">
+        <div class="section-heading">
+            <p class="eyebrow">What we offer</p>
+
+            <h2>Our Services &amp; Prices</h2>
+
+            <p>
+                Select the service that suits your needs. Prices are
+                displayed in Ugandan shillings.
+            </p>
+        </div>
+
+        <div class="service-list">
+
+            <article class="service">
+                <div class="service-icon" aria-hidden="true">🫧</div>
+
+                <h3>Washing</h3>
+
+                <p>
+                    Everyday laundry washing to help keep your clothes
+                    clean and fresh.
+                </p>
+
+                <div class="price">
+                    UGX 10,000
+                    <span class="price-unit">Per load</span>
+                </div>
+
+                <a href="booking.php" class="service-book">
+                    Book washing &rarr;
+                </a>
+            </article>
+
+            <article class="service">
+                <div class="service-icon" aria-hidden="true">👔</div>
+
+                <h3>Dry Cleaning</h3>
+
+                <p>
+                    Special care for suitable delicate garments and
+                    formal clothing.
+                </p>
+
+                <div class="price">
+                    UGX 7,000
+                    <span class="price-unit">Per garment</span>
+                </div>
+
+                <a href="booking.php" class="service-book">
+                    Book dry cleaning &rarr;
+                </a>
+            </article>
+
+            <article class="service">
+                <div class="service-icon" aria-hidden="true">✨</div>
+
+                <h3>Ironing</h3>
+
+                <p>
+                    Neatly pressed clothes to help you look smart
+                    and feel prepared.
+                </p>
+
+                <div class="price">
+                    UGX 5,000
+                    <span class="price-unit">Per garment</span>
+                </div>
+
+                <a href="booking.php" class="service-book">
+                    Book ironing &rarr;
+                </a>
+            </article>
+
+            <article class="service">
+                <div class="service-icon" aria-hidden="true">🚚</div>
+
+                <h3>Delivery</h3>
+
+                <p>
+                    Request convenient delivery for your laundry
+                    when arranging your booking.
+                </p>
+
+                <div class="price">
+                    UGX 4,000
+                    <span class="price-unit">Delivery fee</span>
+                </div>
+
+                <a href="booking.php" class="service-book">
+                    Arrange delivery &rarr;
+                </a>
+            </article>
+
+        </div>
+
+        <p class="price-note">
+            Washing is charged per load; dry cleaning and ironing are
+            charged per garment. Delivery costs UGX 4,000. Final prices
+            and arrangements should be confirmed with Laundry Care.
+        </p>
+    </section>
+
+    <section class="section" id="how-it-works">
+        <div class="section-heading">
+            <p class="eyebrow">Getting started</p>
+
+            <h2>How It Works</h2>
+
+            <p>
+                Three simple steps to submit and follow your laundry request.
+            </p>
+        </div>
+
+        <div class="steps">
+
+            <article class="step">
+                <div class="step-number">1</div>
+
+                <h3>Choose Your Service</h3>
+
+                <p>
+                    Select washing, dry cleaning, ironing or delivery.
+                    Enter the details of your request.
+                </p>
+            </article>
+
+            <article class="step">
+                <div class="step-number">2</div>
+
+                <h3>Submit Your Booking</h3>
+
+                <p>
+                    Choose your preferred pickup date, review the estimated
+                    price and submit your booking request.
+                </p>
+            </article>
+
+            <article class="step">
+                <div class="step-number">3</div>
+
+                <h3>Check Your Status</h3>
+
+                <p>
+                    Keep your booking reference and use the status page
+                    to check the progress of your request.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta">
+            <h2>Ready to Make Laundry Easier?</h2>
+
+            <p>
+                Submit your booking request online and get started
+                with Laundry Care.
+            </p>
+
+            <a href="booking.php" class="button">
+                Book Your Laundry
+            </a>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <div class="contact-content">
+            <p class="eyebrow">We're here to help</p>
+
+            <h2>Contact Laundry Care</h2>
+
+            <p>
+                Have a question about our services, prices or a booking?
+                Please contact Laundry Care to discuss your requirements.
+            </p>
+
+            <div class="contact-links">
+                <a href="booking.php" class="button button-primary">
+                    Make a Booking
+                </a>
+
+                <a href="booking_status.php"
+                   class="button button-secondary">
+                    Check Booking Status
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>Laundry Care</strong> — Clean clothes, greater convenience.</p>
+
+    <p>
+        &copy; 2026 Laundry Care. All rights reserved.
+    </p>
+
+    <p>
+        <a href="booking.php">Book a Service</a>
+        &nbsp;|&nbsp;
+        <a href="booking_status.php">Booking Status</a>
+    </p>
+</footer>
+
+</body>
+</html>
